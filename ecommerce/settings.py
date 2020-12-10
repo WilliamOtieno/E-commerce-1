@@ -80,7 +80,7 @@ DATABASES = {
     }
 }
 
-# Password validation
+# Password validation/home/ndegwawanjiru/PycharmProjects/E-commerceWill/static/css
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
