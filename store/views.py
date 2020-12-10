@@ -7,6 +7,9 @@ import datetime
 
 
 # Create your views here.
+def index(request):
+    return render(request, "pages/index.html")
+
 
 def store(request):
     data = cartData(request)
@@ -88,6 +91,5 @@ def processOrder(request):
             state=data['shipping']['state'],
             zipcode=data['shipping']['zipcode'],
         )
-
 
     return JsonResponse('Payment Submitted...', safe=False)

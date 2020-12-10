@@ -1,10 +1,12 @@
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=s1.0">
     <title>Product Deets | ShopMe</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,19 +26,19 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <img src="../images/shopMe.png" class="img-responsive" alt="ShopMe">
+                <img src="{% static 'images/shopMe.png' %}" class="img-responsive" alt="ShopMe">
             </div>
             <nav>
                 <ul id="MenuItems">
-                    <li><a href="../pages/index.html"> Home </a></li>
+                    <li><a href="{% url 'index' %}"> Home </a></li>
                     <li><a href="#category-section"> Categories </a></li>
                     <li><a href="#contact"> Contact </a></li>
-                    <li><a href="../pages/account.html"> Account </a></li>
+                    <li><a href="{% url 'contact' %}"> Account </a></li>
                 </ul>
             </nav>
 
-            <img src="../images/shopping%20cart.jpeg" alt="Shopping Cart" width="30px" height="30px">
-            <img src="../images/menu-icon.png" class="menu-icon" alt="Menu" onclick="menutoggle()">
+            <img src="{% static 'images/shopping%20cart.jpeg' %}" alt="Shopping Cart" width="30px" height="30px">
+            <img src="{% static 'images/menu-icon.png' %}" class="menu-icon" alt="Menu" onclick="menutoggle()">
 
         </div>
     </div>
@@ -50,13 +52,14 @@
             <th>Quantity</th>
             <th>Subtotal</th>
         </tr>
+        {% for item in items %}
         <tr>
             <td>
                 <div class="cart-info">
-                    <img src="../images/" alt="">
+                    <img src="{{ item.product.imageURL }}" alt="">
                     <div>
-                        <p>Product Name</p>
-                        <small>Price: $</small>
+                        <p>{{ item.product.name }}</p>
+                        <small>Price: Ksh. {{ item.product.price|floatformat:2 }}</small>
                         <br>
                         <a href="">Remove</a>
                     </div>
@@ -67,40 +70,7 @@
             <td>$</td>
 
         </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="../images/" alt="">
-                    <div>
-                        <p>Product Name</p>
-                        <small>Price: $</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </div>
-
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>$</td>
-
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="../images/" alt="">
-                    <div>
-                        <p>Product Name</p>
-                        <small>Price: $</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </div>
-
-            </td>
-            <td><input type="number" value="1"></td>
-            <td>$</td>
-
-        </tr>
+        {% endfor %}
     </table>
 
     <div class="total-price">
@@ -187,3 +157,4 @@
 
 </body>
 </html>
+{% endblock %}
