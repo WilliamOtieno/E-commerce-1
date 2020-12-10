@@ -11,6 +11,10 @@ def index(request):
     return render(request, "pages/index.html")
 
 
+def account(request):
+    return render(request, "pages/account.html")
+
+
 def store(request):
     data = cartData(request)
     cartItems = data['cartItems']

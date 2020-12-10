@@ -1,10 +1,12 @@
+{% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=s1.0">
     <title>Product Deets | ShopMe</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,11 +26,11 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <img src="../images/shopMe.png" class="img-responsive" alt="ShopMe">
+                <img src="{% static 'images/shopMe.png' %}" class="img-responsive" alt="ShopMe">
             </div>
             <nav>
                 <ul id="MenuItems">
-                    <li><a href="../pages/index.html"> Home </a></li>
+                    <li><a href="{% url 'index' %}"> Home </a></li>
                     <li><a href="#category-section"> Categories </a></li>
                     <li><a href="#contact"> Contact </a></li>
                     <li><a href="../pages/account.html"> Account </a></li>
@@ -242,3 +244,4 @@
     </script>
 </body>
 </html>
+{% endblock %}
